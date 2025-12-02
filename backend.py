@@ -11,13 +11,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # ===== MODEL SETUP =====
-# Allow overriding the model path/name via env vars so we can point to a local OpenLLaMA checkout.
-MODEL_NAME = (
-    os.environ.get("THERAPY_GARDEN_MODEL")
-    or os.environ.get("OPENLLAMA_PATH")
-    or "openlm-research/open_llama_3b_v2"
-    or "tanusrich/Mental_Health_Chatbot"
-    )
+# Single, fixed model for this app: smallest reasonable chat model.
+MODEL_NAME = "Qwen/Qwen2.5-0.5B-Instruct"
 logger.info(f"Loading model: {MODEL_NAME}")
 
 try:
